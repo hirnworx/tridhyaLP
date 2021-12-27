@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\city;
+use App\Models\City;
 use alert;
 
 
@@ -22,7 +22,7 @@ class UserController extends Controller
             $city = "Nürnberg";
             $citymeta = 'Wir Entwikeln Mobile Apps. An unserem Standort in Nürnberg erhalten Sie Android, iOS, Hybrid- und Progressive Web Apps';
         }else{
-            $findcity = city::where('city_name',$city)->first();
+            $findcity = City::where('city_name',$city)->first();
 
             if(empty($findcity))
             {
@@ -48,7 +48,7 @@ class UserController extends Controller
         }
        else
         {
-            $findcity = city::where('city_name',$city)->first();
+            $findcity = City::where('city_name',$city)->first();
 
             if(empty($findcity))
             {
@@ -72,7 +72,7 @@ class UserController extends Controller
         }
      else
        {
-            $findcity = city::where('city_name',$city)->first();
+            $findcity = City::where('city_name',$city)->first();
 
             if(empty($findcity))
             {

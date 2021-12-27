@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\inquiry;
-use App\Models\city;
+use App\Models\City;
 use Mail;
 use alert;
 
@@ -22,7 +22,7 @@ class InquiryController extends Controller
             $city = "Nürnberg";
             $citymeta = 'Melkin, Booking and Reservation form Wizard by Ansonika.';
         }else{
-            $findcity = city::where('city_name',$city)->first();
+            $findcity = City::where('city_name',$city)->first();
 
             if(empty($findcity))
             {
@@ -56,7 +56,7 @@ class InquiryController extends Controller
     public function store(Request $request)
     {
         
-        $inquiry = new inquiry(); 
+        $inquiry = new Inquiry(); 
         $inquiry->time = $request->time;
         $inquiry->app  = $request->treatments;
         $inquiry->app_category = implode(',', $request->options);
@@ -112,7 +112,7 @@ class InquiryController extends Controller
             $city = "Nürnberg";
             $citymeta = 'Melkin, Booking and Reservation form Wizard by Ansonika.';
         }else{
-            $findcity = city::where('city_name',$city)->first();
+            $findcity = City::where('city_name',$city)->first();
 
             if(empty($findcity))
             {
