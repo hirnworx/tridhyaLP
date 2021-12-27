@@ -6,26 +6,23 @@ use Illuminate\Console\Command;
 use Spatie\Sitemap\SitemapGenerator;
 use Spatie\Sitemap\Tags\Url;
 use Carbon\Carbon;
-use File;
-use App\Models\city;
+use App\Models\City;
 
-class sitemap extends Command
+class Sitemap extends Command
 {
-    public $data =[];
-    public $path = '';
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'generate:sitemap';
+    protected $signature = 'sitemap:create';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'genrate site  map';
+    protected $description = 'Command description';
 
     /**
      * Create a new command instance.
@@ -44,53 +41,49 @@ class sitemap extends Command
      */
     public function handle()
     {
-        try{
+       try{
             $filename = 'sitemap.xml';
-            $this->path =  public_path().'\sitemaps'.'\\';
-            $this->public_path = public_path().'\\';
-
+            $this->path =  public_path('/');
+			$domain = config('constant.site_url');
+      
             ini_set('memory_limit',-1);
             set_time_limit(0);
             ini_set('max_execution_time', 0);
             ignore_user_abort(value(true));
+
+            if(file_exists($this->path . $filename)){
+                chmod($this->path,0777);
+                chmod($this->path . $filename ,0777);
+                rename($this->path . $filename ,$this->path .'sitemap-old-'.date('D-d-M-Y h-s'.'.xml'));
+            }
+
+            $cityList =City::select('city_name')->pluck('city_name');
+            $sitemap = SitemapGenerator::create($domain)->getSitemap();
+              
+            foreach($cityList as $key=>$val){
+                $baseurl = $sitemap->add($domain.trim($val));
+            }
+
+            $baseurl->writeToFile($this->path . $filename);   
+            $sitemapUrl = $domain.$filename;
             
-            if(file_exists($this->public_path . $filename)){
-                chmod($this->public_path,0777);
-                chmod($this->public_path . $filename ,0777);
-                rename($this->public_path . $filename ,$this->path .'sitemap-old-'.date('D-d-M-Y h-s'.'.xml'));
-            }
-           
-            $cityList =city::select('city_name')->pluck('city_name');
-            $sitemap_link = config('constant.site_url');
-            $sitemap = SitemapGenerator::create($sitemap_link)
-            ->getSitemap();
-               
-            foreach($cityList as $key=>$val)
-            {
-                $baseurl = $sitemap->add($sitemap_link.$val);
-            }
-
-            $baseurl->writeToFile($this->public_path . $filename);   
-            $sitemapUrl = $sitemap_link.$filename;
-            function myCurl($url)
-            {
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_HEADER, 8);
-            curl_exec($ch);
-            $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
-            curl_close($ch);
-            return $httpCode;
-             }
-
-          //site map for google
-
+            // site map for google
             $url ="http://www.google.com/webmasters/sitemap/ping?sitemap=".$sitemapUrl;
-            $returnCode = myCurl($url);
-            echo '<p>google sitemap has been pinged(return code:$returncode).</p>';
-        }
-        catch(Exception $e){
+            $returnCode = $this->myCurl($url);
+            echo '<p>google sitemap has been pinged(return code:'.$returnCode.').</p>';
+
+        } catch(Exception $e){
             Log:error($e);
         }
-      
+    }
+
+    private function myCurl($url)
+    {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 8);
+        curl_exec($ch);
+        $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        return $httpCode;
     }
 }
