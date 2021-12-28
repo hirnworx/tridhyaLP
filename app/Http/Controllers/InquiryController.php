@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\inquiry;
+use App\Models\Inquiry;
 use App\Models\City;
 use Mail;
 use alert;
