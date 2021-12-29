@@ -167,7 +167,7 @@
 
                             <!-- Vission Tab Begin -->
                             <div class="tab-pane fade" id="vission" role="tabpanel">
-                                <p>Android bietet im gegensatz zu iOS eine offene Systemarchitektur. Es fällt hier deutlich leichter Core-Funktionen wie GPS, Sensoric etc. 
+                                <p>Android bietet im Gegensatz zu iOS eine offene Systemarchitektur. Es fällt hier deutlich leichter Core-Funktionen wie GPS, Sensoric etc. 
                                     zu integrieren. Hier liegen die Vorteile einer Nativen Adroid App gegenüber einer Hybrid App eher im Bereich Performance.</p> 
 
                                 <ul class="list-unstyled list-check">
@@ -381,7 +381,7 @@
                                 <!-- Content Begin -->
                                 <div class="content">
                                     <h4>Dedicated Developer</h4>
-                                    <p>Für Größere Projekte stellen wir Ihnen exklusiv einen eigenen Entwickler.</p>
+                                    <p>Für größere Projekte stellen wir Ihnen exklusiv einen eigenen Entwickler.</p>
                                     <a href="#" class="btn-inline">Mehr Infos</a>
                                 </div>
                                 <!-- Content End -->
@@ -508,7 +508,7 @@
                                 <div class="tab-pane-text">
                                     <h3>Worum es hier geht? </h3>
                                     <ul class="list-unstyled list-check">
-                                        <li><i class="fa fa-check" aria-hidden="true"></i> Sie bezahlen nur die tatsächlichen Stunden </li>
+                                        <li><i class="fa fa-check" aria-hidden="true"></i> Sie bezahlen nur die tatsächlich angefallenen Stunden </li>
                                         <li><i class="fa fa-check" aria-hidden="true"></i> Sie erhalten einen deutschen Projektmanager</li>
                                         <li><i class="fa fa-check" aria-hidden="true"></i> Wir vereinbaren einen individuellen Stundensatz</li>
                                         <li><i class="fa fa-check" aria-hidden="true"></i> Rentiert sich für Projekte unter 50 Stunden</li>
@@ -593,7 +593,7 @@
                                 <!-- Tab Pane Text Begin -->
                                 <div class="tab-pane-text mt-50 mt-lg-0">
                                     <h3>Was Sie davon haben? -</h3>
-                                    <p>Einen eigenen Entwickler zum Montatlichen Fixpreis. Setzen Sie größere Projekte zum reduzierten Preis um
+                                    <p>Einen eigenen Entwickler zum montatlichen Fixpreis. Setzen Sie größere Projekte zum reduzierten Preis um
                                     </p>
                                     <ul class="list-unstyled list-check">
                                         <li><i class="fa fa-check" aria-hidden="true"></i> Ihr Entwickler arbeitet ausschließlich an Ihrem Projekt</li>
