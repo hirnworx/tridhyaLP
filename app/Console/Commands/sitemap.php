@@ -43,19 +43,18 @@ class Sitemap extends Command
     {
        try{
             $filename = 'sitemap.xml';
-            $this->path =  public_path('/');
+            $this->path =  public_path().'/sitemaps/';
+            $this->public_path = public_path('/');
 			$domain = config('constant.site_url');
-      
+     
             ini_set('memory_limit',-1);
             set_time_limit(0);
             ini_set('max_execution_time', 0);
             ignore_user_abort(value(true));
 
-            if(file_exists($this->path . $filename)){
-                chmod($this->path,0777);
-                chmod($this->path . $filename ,0777);
-                rename($this->path . $filename ,$this->path .'sitemap-old-'.date('D-d-M-Y h-s'.'.xml'));
-            }
+            if(file_exists($this->public_path . $filename)){
+                rename($this->public_path.$filename , $this->path.'sitemap-old-'.time().'.xml');
+			}
 
             $cityList =City::select('city_name')->pluck('city_name');
             $sitemap = SitemapGenerator::create($domain)->getSitemap();
@@ -64,7 +63,7 @@ class Sitemap extends Command
                 $baseurl = $sitemap->add($domain.trim($val));
             }
 
-            $baseurl->writeToFile($this->path . $filename);   
+            $baseurl->writeToFile($this->public_path . $filename);   
             $sitemapUrl = $domain.$filename;
             
             // site map for google
