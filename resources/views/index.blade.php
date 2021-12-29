@@ -40,7 +40,7 @@
                             <div class="banner-content">
                                 <h1>iOS & Android <span>Apps</span> <br>
                                     in {{$city}} entwickeln</h1>
-                                <p>Entwickeln Sie einach und effizient Ihre eigene Mobile-App mit uns. Fragen Sie doch einfach an!</p>
+                                <p>Entwickeln Sie einfach und effizient Ihre eigene Mobile-App mit uns. Fragen Sie doch einfach an!</p>
                                 <a href="{{route('inquiry',$city_url)}}" class="banner-btn btn"><span>Kostenloses Angebot anfragen</span></a>
                             </div>
                             <!-- Banner Content End -->
