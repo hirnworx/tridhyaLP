@@ -40,7 +40,7 @@ class GetDynamicContent extends Command
     public function handle()
     {
         try{
-            $cityList = City::select('wikipedia_city_name','id')->whereNull('city_discription')->get();
+            $cityList = City::select('wikipedia_city_name','id')->whereNull('city_discription')->orWhere('city_discription', '')->get();
           
             $htmlcontent = "";
             if(!empty($cityList))
