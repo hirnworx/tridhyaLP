@@ -69,7 +69,7 @@ class GetDynamicContent extends Command
                     
                     if(!empty($content)){                   
                         $add_content = City::find($val->id);
-                        $add_content->city_discription = trim(strip_tags($content)); 
+                        $add_content->city_discription = trim($content); 
                         $add_content->save(); 
                     }
 

@@ -283,6 +283,18 @@
                     <!-- Single Work Process End -->
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Title Begin -->
+                    <div class="section-title text-center">
+                        <h2>Mehr Informationen über den Standort {{$city}}</h2>
+                        <p>{!!$city_discription!!}
+                        </p>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
         </div>
     </section>
     <!-- Work Process End -->
