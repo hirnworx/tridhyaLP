@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="single-info">
                                     <span>Telefon</span>
-                                    <p><a href="tel:+499101-7018296">+49(0)9101-7018296</a></p>
+                                    <p><a href="tel:+499101-7018296">+49(0)9101 4789320</a></p>
                                 </div>
                                 <div class="single-info">
                                     <span>Email</span>
