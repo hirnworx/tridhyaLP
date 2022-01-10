@@ -91,7 +91,7 @@
                     </div>
                     <div class="single-info">
                         <span>Business Phone</span>
-                        <p><a href="tel:+499101-7018296">+49(0)9101 4789320</a>
+                        <p><a href="tel:+49(0)9101 4789320">+49(0)9101 4789320</a>
                         </p>
                     </div>
                     <div class="single-info">
