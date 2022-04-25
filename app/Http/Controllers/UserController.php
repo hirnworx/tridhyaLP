@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index($city=null)
     {
-        $title = 'App Entwicklung in Nürnberg ';
+        $title = 'App Entwicklung in Nürnberg';
         if(empty($city)){
             $default_city = City::where('city_name','Nürnberg')->first();
             $city_url = '';
@@ -33,6 +33,7 @@ class UserController extends Controller
             }
             $city_url = $findcity->city_name;
             $city =$findcity->city_name;
+            $title = 'App Entwicklung in '.$city;
             $citymeta = $findcity->meta_description;
             $city_discription = $findcity->city_discription;
         }
